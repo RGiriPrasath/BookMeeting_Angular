@@ -1,0 +1,86 @@
+<div class="container">
+  <h2>Room Booking System</h2>
+  
+  <form (ngSubmit)="submitForm()" #formRef="ngForm">
+    <div class="form-row">
+      <div class="form-group">
+        <label>Date:</label>
+        <input
+          type="date"
+          name="date"
+          [ngModel]="date()"
+          (ngModelChange)="onDateChange($event)"
+          [ngClass]="{'booked-date': isDateBooked(date()), 'holiday-date': isHoliday(date())}"
+          required
+        />
+        <div class="calendar-legend">
+          <div class="legend-item">
+            <div class="legend-color booked-color"></div>
+            <span>Booked</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color holiday-color"></div>
+            <span>Holiday</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label>Time:</label>
+        <input
+          type="time"
+          name="time"
+          [ngModel]="time()"
+          (ngModelChange)="onTimeChange($event)"
+          required
+        />
+      </div>
+    </div>
+    
+    <div class="form-row">
+      <div class="form-group">
+        <label>Room:</label>
+        <select
+          name="room"
+          [ngModel]="room()"
+          (ngModelChange)="onRoomChange($event)"
+          required
+        >
+          <option value="" disabled selected>Select a room</option>
+          <option *ngFor="let roomOption of rooms" [value]="roomOption">{{ roomOption }}</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label>Coach:</label>
+        <select
+          name="coach"
+          [ngModel]="coach()"
+          (ngModelChange)="onCoachChange($event)"
+          required
+        >
+          <option value="" disabled selected>Select a coach</option>
+          <option *ngFor="let coachOption of coaches" [value]="coachOption">{{ coachOption }}</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="button-container">
+      <button type="submit" [disabled]="!isFormValid()">Book Meeting</button>
+    </div>
+  </form>
+  
+  <div *ngIf="response()" class="response-section" [ngClass]="getResponseClass()">
+    <h3>Response:</h3>
+    <p>{{ response()?.message }}</p>
+    <div *ngIf="response()?.suggestions" class="suggestions">
+      <h4>Suggestions:</h4>
+      <ul>
+        <li><strong>Date:</strong> {{ response()?.suggestions?.date }}</li>
+        <li><strong>Time:</strong> {{ response()?.suggestions?.time }}</li>
+        <li><strong>Room:</strong> {{ response()?.suggestions?.room }}</li>
+        <li><strong>Coach:</strong> {{ response()?.suggestions?.coach }}</li>
+      </ul>
+    </div>
+  </div>
+</div>

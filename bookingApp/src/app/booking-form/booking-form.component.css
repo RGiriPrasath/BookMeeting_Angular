@@ -1,0 +1,376 @@
+/* Import Roboto font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+/* Apply Roboto font to all elements */
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Modern, clean styling for the booking form */
+:root {
+  --primary-color: #3498db;
+  --primary-dark: #2980b9;
+  --secondary-color: #2ecc71;
+  --danger-color: #e74c3c;
+  --warning-color: #f39c12;
+  --text-color: #333;
+  --light-gray: #f5f5f5;
+  --border-color: #ddd;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --success-bg: #e8f8f5;
+  --warning-bg: #fef9e7;
+  --danger-bg: #fdedec;
+  --info-bg: #eaf2f8;
+}
+
+body {
+  font-family: 'Roboto', sans-serif !important;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  font-family: 'Roboto', sans-serif;
+  border: 2px solid var(--primary-color);
+  outline: 4px solid rgba(52, 152, 219, 0.2);
+}
+
+/* Enhanced typography for headings */
+h2 {
+  font-family: 'Roboto', sans-serif;
+  color: #1a5dad; /* Deeper blue for heading */
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 700;
+  border-bottom: 3px solid var(--primary-color);
+  padding-bottom: 0.8rem;
+  letter-spacing: 0.5px;
+  font-size: 2.2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Fix for form layout */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+.form-row {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.form-group {
+  flex: 1;
+  margin-bottom: 0.5rem;
+}
+
+/* Fixed label styling to ensure visibility */
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #1a5dad; /* Matching heading blue color */
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  padding-left: 0.3rem;
+  border-left: 3px solid var(--primary-color);
+}
+
+.form-group:hover label {
+  transform: translateX(3px);
+  border-left-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+input, select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+button {
+  background-color: var(--primary-color);
+  color: black;
+  border: 2px solid var(--primary-dark);
+  padding: 0.85rem 1.75rem;
+  font-size: 1.1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 600;
+  min-width: 220px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: 'Roboto', sans-serif;
+}
+
+button:hover:not(:disabled) {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+button:disabled {
+  background-color: #cccccc;
+  border-color: #bbbbbb;
+  color: #888888;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Explicit response section styling */
+.response-section {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: #eaf2f8 !important; /* Default blue background */
+  border-radius: 8px;
+  border-left: 4px solid #3498db !important; /* Default blue border */
+  font-family: 'Roboto', sans-serif;
+  animation: fadeIn 0.5s ease-in-out;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.success {
+  background-color: #e8f8f5 !important; /* Green background */
+  border-left-color: #2ecc71 !important; /* Green border */
+}
+
+.warning {
+  background-color: #fef9e7 !important; /* Yellow background */
+  border-left-color: #f39c12 !important; /* Yellow border */
+}
+
+.danger {
+  background-color: #fdedec !important; /* Red background */
+  border-left-color: #e74c3c !important; /* Red border */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.response-section h3 {
+  margin-top: 0;
+  color: #1a5dad; /* Matching heading blue */
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  font-size: 1.4rem;
+  letter-spacing: 0.3px;
+  margin-bottom: 0.75rem;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.success h3 {
+  color: #2ecc71 !important; /* Green text */
+}
+
+.warning h3 {
+  color: #f39c12 !important; /* Yellow/orange text */
+}
+
+.danger h3 {
+  color: #e74c3c !important; /* Red text */
+}
+
+.response-section p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 1rem;
+  font-weight: 400;
+  font-family: 'Roboto', sans-serif;
+}
+
+.suggestions {
+  background-color: white;
+  padding: 1.25rem;
+  border-radius: 6px;
+  margin-top: 1rem;
+  box-shadow: var(--shadow);
+  border-left: 3px solid var(--secondary-color);
+  font-family: 'Roboto', sans-serif;
+}
+
+.suggestions h4 {
+  margin-top: 0;
+  color: var(--secondary-color);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.suggestions ul {
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.suggestions li {
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+  font-size: 0.95rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+.suggestions li strong {
+  color: var(--primary-dark);
+  font-weight: 600;
+  margin-right: 0.25rem;
+}
+
+/* Calendar styling for date input */
+input[type="date"] {
+  position: relative;
+  padding-right: 2.5rem;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+/* Booked dates indicator */
+.booked-date {
+  background-color: rgba(231, 76, 60, 0.1);
+  border-color: var(--danger-color);
+}
+
+.holiday-date {
+  background-color: rgba(243, 156, 18, 0.1);
+  border-color: var(--warning-color);
+}
+
+/* Legend for calendar */
+.calendar-legend {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legend-color {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 3px;
+}
+
+.booked-color {
+  background-color: rgba(231, 76, 60, 0.3);
+  border: 1px solid var(--danger-color);
+}
+
+.holiday-color {
+  background-color: rgba(243, 156, 18, 0.3);
+  border: 1px solid var(--warning-color);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+  
+  .form-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .form-group {
+    width: 100%;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  .response-section h3 {
+    font-size: 1.3rem;
+  }
+  
+  .suggestions h4 {
+    font-size: 1.1rem;
+  }
+}
+
+/* New styles for the response section */
+div[class="response-section"] {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: #eaf2f8 !important;
+  border-radius: 8px;
+  border-left: 4px solid #3498db !important;
+  font-family: 'Roboto', sans-serif;
+  animation: fadeIn 0.5s ease-in-out;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+div[class="response-section"] h3 {
+  margin-top: 0;
+  color: #1a5dad;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  font-size: 1.4rem;
+  letter-spacing: 0.3px;
+  margin-bottom: 0.75rem;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+div[class="response-section"] p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 1rem;
+  font-weight: 400;
+  font-family: 'Roboto', sans-serif;
+}
